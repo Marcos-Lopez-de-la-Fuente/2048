@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">2048</string>
+    <string name="text_default">Join the numbers and get to the <b>2048 tile!</b></string>
+    <string name="score_title">SCORE</string>
+    <string name="best_title">BEST</string>
+    <string name="init_value">0</string>
+    <string name="new_game_button">New Game</string>
+
+</resources>
