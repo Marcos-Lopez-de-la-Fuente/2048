@@ -8,8 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background">#faf8ef</color>
-    <color name="background_grid">#776e65</color>
-    <color name="item_disable">#8f7a66</color>
-    <color name="item_enable">#9d948c</color>
+    <color name="background">#edede9</color>
+    <color name="background_grid">#d5bdaf</color>
+    <color name="item_disable">#d6ccc2</color>
+    <color name="item_enable">#f5ebe0</color>
+    <color name="other_color">#e3d5ca</color>
 </resources>
