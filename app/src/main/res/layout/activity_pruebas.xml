@@ -82,8 +82,20 @@
 
 
     <Button
-        android:id="@+id/forXfor"
+        android:id="@+id/threeXThree"
+        android:text="3X3" />
+
+    <Button
+        android:id="@+id/fourXFour"
         android:text="4X4" />
+
+    <Button
+        android:id="@+id/fiveXFive"
+        android:text="5X5" />
+
+    <Button
+        android:id="@+id/sixXSix"
+        android:text="6X6" />
 
     <GridLayout
         android:id="@+id/gridMain"
@@ -91,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="3"
         android:layout_marginTop="20dp"
+        android:visibility="invisible"
         android:background="@drawable/backgrid"
         android:orientation="horizontal">
 
