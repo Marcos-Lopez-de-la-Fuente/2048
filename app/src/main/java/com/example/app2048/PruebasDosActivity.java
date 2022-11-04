@@ -17,9 +17,7 @@ import android.widget.Toast;
 
 import java.util.Map;
 
-public class PruebasActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
-
-    private Button nextTestZone;
+public class PruebasDosActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
 
     // Attributes
@@ -29,10 +27,11 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
     private Button fiveXFive;
     private Button sixXSix;
 
-
-    private GridLayout gridMain;
-    private boolean gridChosen = false;
     private Drawable items;
+
+
+
+    private boolean gridChosen = false;
 
 
     private int swipeMinDistance;
@@ -51,8 +50,6 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        this.nextTestZone = findViewById(R.id.nextTestZone);
-
 
         this.gridParent = findViewById(R.id.gridParent);
 
@@ -69,13 +66,6 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        this.nextTestZone.setOnClickListener(view ->
-                this.startActivity(new Intent(this, PruebasActivity.class))
-        );
-
-
-
 
 
         this.threeXThree.setOnClickListener(view -> {
@@ -106,33 +96,33 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
      */
     public void generateGridLayout(int sizeColumnsAndRows) {
 
-        this.createGridLayoutAndParams();
+        GridLayout gridLayout = this.createGridLayoutAndParams();
 
 
         // Setting size of GridLayout
-        this.atributesGridLayout(sizeColumnsAndRows);
+        this.attributesGridLayout(gridLayout, sizeColumnsAndRows);
 
         // Fill GridLayout with TextViews
-        this.fillGridLayout(sizeColumnsAndRows);
+        this.fillGridLayout(gridLayout, sizeColumnsAndRows);
     }
 
-    public void createGridLayoutAndParams() {
+    public GridLayout createGridLayoutAndParams() {
 
-        this.createGridLayout();
+        GridLayout gridLayout = this.createGridLayout();
 
         GridLayout.LayoutParams layoutParams = this.createGridLayoutParams();
 
-        this.gridParent.addView(this.gridMain, layoutParams);
+        this.gridParent.addView(gridLayout, layoutParams);
+
+        return gridLayout;
     }
 
-    public void createGridLayout() {
-        if (this.gridChosen) {
-            this.gridParent.removeView(this.gridMain);
-        }
-        this.gridChosen = true;
+    public GridLayout createGridLayout() {
 
-        this.gridMain = new GridLayout(this);
-        this.gridMain.setBackground(getDrawable(R.drawable.backgrid));
+        GridLayout gridLayout = new GridLayout(this);
+        gridLayout.setBackground(getDrawable(R.drawable.backgrid));
+
+        return gridLayout;
     }
 
     public GridLayout.LayoutParams createGridLayoutParams() {
@@ -147,10 +137,10 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
     }
 
 
-    public void fillGridLayout(int sizeColumnsAndRows) {
+    public void fillGridLayout(GridLayout gridLayout, int sizeColumnsAndRows) {
         for (int i = 0; i < sizeColumnsAndRows; i++) {
             for (int j = 0; j < sizeColumnsAndRows; j++) {
-                this.createTextViewIntoGridLayout(j, i, sizeColumnsAndRows);
+                this.createTextViewIntoGridLayout(gridLayout, j, i, sizeColumnsAndRows);
             }
         }
     }
@@ -161,9 +151,9 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
      *
      * @param sizeColumnsAndRows Size chosen by the user
      */
-    public void atributesGridLayout(int sizeColumnsAndRows) {
-        this.gridMain.setColumnCount(sizeColumnsAndRows);
-        this.gridMain.setRowCount(sizeColumnsAndRows);
+    public void attributesGridLayout(GridLayout gridLayout, int sizeColumnsAndRows) {
+        gridLayout.setColumnCount(sizeColumnsAndRows);
+        gridLayout.setRowCount(sizeColumnsAndRows);
     }
 
 
@@ -174,7 +164,7 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
      * @param row                Row of GridLayout to create the new TextView
      * @param sizeColumnsAndRows Size chosen by the user
      */
-    public void createTextViewIntoGridLayout(int column, int row, int sizeColumnsAndRows) {
+    public void createTextViewIntoGridLayout(GridLayout gridLayout, int column, int row, int sizeColumnsAndRows) {
 
         // TextView to add
         TextView textView = createTextViewToGridLayout(sizeColumnsAndRows);
@@ -182,7 +172,7 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
         // LayoutParams of GridLayout
         GridLayout.LayoutParams layoutParams = createLayoutParamsToGridLayout(column, row, sizeColumnsAndRows);
 
-        this.gridMain.addView(textView, layoutParams);
+        gridLayout.addView(textView, layoutParams);
     }
 
 
@@ -419,14 +409,6 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
         this.sixXSix = sixXSix;
     }
 
-    public GridLayout getGridMain() {
-        return gridMain;
-    }
-
-    public void setGridMain(GridLayout gridMain) {
-        this.gridMain = gridMain;
-    }
-
     public Drawable getItems() {
         return items;
     }
@@ -457,5 +439,22 @@ public class PruebasActivity extends AppCompatActivity implements GestureDetecto
 
     public void setGestureDetectorCompat(GestureDetectorCompat gestureDetectorCompat) {
         this.gestureDetectorCompat = gestureDetectorCompat;
+    }
+
+
+    public GridLayout getGridParent() {
+        return gridParent;
+    }
+
+    public void setGridParent(GridLayout gridParent) {
+        this.gridParent = gridParent;
+    }
+
+    public boolean isGridChosen() {
+        return gridChosen;
+    }
+
+    public void setGridChosen(boolean gridChosen) {
+        this.gridChosen = gridChosen;
     }
 }

@@ -1,9 +1,11 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-i
-9app/src/main/java/com/example/app2048/StateDirection.java,e\e\ee65a54f8a3140b8061c5c26a151ab91ec249f9f
-j
-:app/src/main/java/com/example/app2048/PruebasActivity.java,1\6\1638704f0608b1459a0fa8687d867ba437dba771
 g
 7app/src/main/java/com/example/app2048/MainActivity.java,9\6\96a471a75034ef340233545b8b0f8f1980a5ce9f
+j
+:app/src/main/java/com/example/app2048/PruebasActivity.java,1\6\1638704f0608b1459a0fa8687d867ba437dba771
+i
+9app/src/main/java/com/example/app2048/StateDirection.java,e\e\ee65a54f8a3140b8061c5c26a151ab91ec249f9f
+m
+=app/src/main/java/com/example/app2048/PruebasDosActivity.java,6\7\674fcc5a3ef877838fbe28d1616d3a5545c90186
