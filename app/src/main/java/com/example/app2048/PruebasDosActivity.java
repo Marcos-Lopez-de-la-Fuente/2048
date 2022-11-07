@@ -58,7 +58,7 @@ public class PruebasDosActivity extends AppCompatActivity implements GestureDete
         this.fiveXFive = findViewById(R.id.fiveXFive);
         this.sixXSix = findViewById(R.id.sixXSix);
 
-        this.items = getDrawable(R.drawable.item);
+        this.setItems(getDrawable(R.drawable.item));
 
         this.setSwipeMinDistance(80);
         this.setSwipeThresholdVelocity(50);
@@ -186,7 +186,7 @@ public class PruebasDosActivity extends AppCompatActivity implements GestureDete
         TextView textView = new TextView(this);
 
         //textView.setText("1");
-        textView.setBackground(this.items);
+        textView.setBackground(this.getItems());
         textView.setGravity(Gravity.CENTER);
 
 
